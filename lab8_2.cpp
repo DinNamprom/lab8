@@ -3,7 +3,21 @@
 #include<string>
 using namespace std;
 
-//[Missing Code 1] Write definition of the function findGrade() here.
+double findGrade(double score){
+    double grade;
+    if (score > 90 && score <= 100) {
+        grade = double('A');
+    }else if (score > 75 && score <= 90) {
+        grade = double('B');
+    }else if (score > 60 && score <= 75) {
+        grade = double('C');
+    }else if (score > 45 && score <= 60) {
+        grade = double('D');
+    }else if (score >= 0 && score <= 45) {
+        grade = double('F');
+    }
+    return grade;
+}
 
 int main(){
 	//Input the number of students
@@ -17,9 +31,9 @@ int main(){
 	while(i < N){
 		cout << "Name of student " << i+1 << ": ";
 		cin.ignore();
-		//[Missing Code 2] Get name of the i-th students that may include whitespace.
+		getline(cin,name[i]);
 		cout << "Score of student " << i+1 << ": ";
-		//[Missing Code 3] Get score of the i-th students.
+		cin >> score[i];
 		i++;
 	}
 	
@@ -29,7 +43,7 @@ int main(){
 	cout << setw(25) << "Name" << setw(8) << "Score" << setw(8) << "Grade" << "\n";
 	cout << "---------------------------------------------\n";
 	while(i < N){
-		cout << setw(25) << name[i] << setw(8) << score[i] << setw(8) << findGrade(score[i]) << "\n";
+		cout << setw(25) << name[i] << setw(8) << score[i] << setw(8) << char(findGrade(score[i])) << "\n";
 		i++;
 	} 
 	cout << "---------------------------------------------\n";
